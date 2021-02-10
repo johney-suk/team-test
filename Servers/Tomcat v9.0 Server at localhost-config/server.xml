@@ -60,7 +60,7 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector connectionTimeout="20000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector URIEncoding="UTF-8" connectionTimeout="20000" port="8888" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="Sample" path="/Sample" reloadable="true" source="org.eclipse.jst.jee.server:Sample"/></Host>
+      <Context docBase="Sample" path="/Sample" reloadable="true" source="org.eclipse.jst.jee.server:Sample"/><Context docBase="URLServer" path="/URLServer" reloadable="true" source="org.eclipse.jst.jee.server:URLServer"/><Context docBase="jsp_day02" path="/jsp_day02" reloadable="true" source="org.eclipse.jst.jee.server:jsp_day02"/><Context docBase="MinipProject" path="/MinipProject" reloadable="true" source="org.eclipse.jst.jee.server:MinipProject"/><Context docBase="jsp_day03" path="/jsp_day03" reloadable="true" source="org.eclipse.jst.jee.server:jsp_day03"/><Context docBase="jsp_day04" path="/jsp_day04" reloadable="true" source="org.eclipse.jst.jee.server:jsp_day04"/><Context docBase="jsp_day04_Ajax_JSON_JSP" path="/jsp_day04_Ajax_JSON_JSP" reloadable="true" source="org.eclipse.jst.jee.server:jsp_day04_Ajax_JSON_JSP"/><Context docBase="jsp_day05" path="/jsp_day05" reloadable="true" source="org.eclipse.jst.jee.server:jsp_day05"/><Context docBase="jsp_day06" path="/jsp_day06" reloadable="true" source="org.eclipse.jst.jee.server:jsp_day06"/><Context docBase="BBS" path="/BBS" reloadable="true" source="org.eclipse.jst.jee.server:BBS"/></Host>
     </Engine>
   </Service>
 </Server>

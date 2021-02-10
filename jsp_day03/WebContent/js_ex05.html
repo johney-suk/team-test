@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script src="http://code.jquery.com/jquery.js">
+	
+</script>
+<script>
+//$(document).ready(function(){});
+// jquery 진입점 축약
+$(function(){
+	var jqueryBox = $(".box");
+	console.dir(jqueryBox);
+	
+	var domBox = $(".box").get(0); // $(".box")[0]
+	console.dir(domBox);
+
+	var jqueryBox2 = $(domBox); // DOM 객체가 jQuery객체로 바뀐다.
+	console.dir(jqueryBox2);
+	// javascript 객체와 jqery객체를 서로 바꿔가면서 사용 가능하다.
+});
+</script>
+<body>
+
+
+<div class="box">BOX</div>
+
+</body>
+</html>

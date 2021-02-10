@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script>
+$(function() {
+	$("button").click(function() {
+		$.get("demo_test.jsp", function(data, status) {
+			if(status == "success") {
+				$("#result").html(data);
+			}
+		});
+	});
+
+});
+</script>
+</head>
+<body>
+	<!-- <h1>GET 방식으로 Ajax 처리</h1>
+	NAME : <input type="text" id="name" value="KIM"/><br>
+	CITY : <input type="text" id="city" value="SEOUL"/><br> -->
+	<button>GET 방식으로 Ajax 처리</button>
+
+	<div id="result">여기에 내용이 보여집니다.</div>
+
+</body>
+</html>

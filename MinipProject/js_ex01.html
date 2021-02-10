@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>My First JavaScript</h2>
+
+<!-- <button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button> -->
+<button id="btn">click!</button>
+
+<p id="demo"></p>
+
+
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function() {
+        var demo = document.getElementById('demo');
+        console.log(demo);
+        demo.innerText = "날짜 : " + Date();
+    };
+</script>
+
+</body>
+</html> 

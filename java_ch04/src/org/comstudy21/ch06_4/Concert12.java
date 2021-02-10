@@ -90,16 +90,16 @@ class Concert {
 			int select = scan.nextInt();
 			switch (select) {
 			case 1:
-				input();
+//				input();
 				break;
 			case 2:
-				view();
+//				view();
 				break;
 			case 3:
-				cancle();
+//				cancle();
 				break;
 			case 4:
-				finish();
+//				finish();
 				return;
 			}
 

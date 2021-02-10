@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+label {
+	display: inline-block;
+	width: 60px;
+}
+
+p {
+	margin: 5px 0;
+}
+
+fieldset {
+	width: 300px;
+}
+</style>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script>
+	$(function() {
+		$('form').submit(function() {
+			event.preventDefault();
+			if (this.no.value == "") {
+				alert("no는 필수 입력 항목입니다!");
+				this.no.focus();
+				return;
+			}
+			if (this.name.value == "") {
+				alert("name는 필수 입력 항목입니다!");
+				this.name.focus();
+				return;
+			}
+			if (this.email.value == "") {
+				alert("email는 필수 입력 항목입니다!");
+				this.email.focus();
+				return;
+			}
+			if (this.phone.value == "") {
+				alert("phone는 필수 입력 항목입니다!");
+				this.phone.focus();
+				return;
+			}
+			this.action = "form_ok.jsp";
+			this.method ="POST";
+			this.submit();
+		});
+	});
+</script>
+</head>
+<body>
+
+	<h1>::: 고객정보입력 :::</h1>
+	<form>
+		<fieldset>
+			<legend>기본정보</legend>
+			<p>
+				<label for="no">No</label><input type="text" id="no" name="no"
+					value="0" disabled="disabled" />
+			</p>
+			<p>
+				<label for="name">Name</label><input type="text" id="name"
+					name="name" />
+			</p>
+			<p>
+				<label for="email">Email</label><input type="text" id="email"
+					name="email" />
+			</p>
+			<p>
+				<label for="phone">Phone</label><input type="text" id="phone"
+					name="phone" />
+			</p>
+			<p>
+				<input type="submit" value="저장하기" />
+			</p>
+		</fieldset>
+	</form>
+
+</body>
+</html>

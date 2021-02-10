@@ -19,7 +19,7 @@ public class HwHashMap {
 		mj = scan.next();
 
 		System.out.print("성적>>> ");
-		double score = new double();
+		 score= ;
 		score = scan.next();
 
 		System.out.print("등수>>> ");

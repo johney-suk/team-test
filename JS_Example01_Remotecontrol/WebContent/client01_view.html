@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div#box {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border: 1px solid red;
+	background: yellow;
+}
+</style>
+<script src="http://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+
+<div id="box">BOX</div>
+
+<script>
+$(function() {
+	var x = 300;
+	var y = 300;
+	
+	$("#box").animate({left:x, top:y},'fast');
+	
+	function receiveServerData() {
+		var strUrl = "http://localhost:8888/JS_Example01_Remotecontrol/server.jsp";
+		strUrl += "?x="+x+"&y="+y+"&cmd=v";
+		
+		$.get(strUrl, function(data, status) {
+			data = data.trim();
+			if(status == 'success' && data.trim().length!=0) {
+				console.log(data.trim());
+				var jsObj = JSON.parse(data);
+				x = jsObj.x;
+				y = jsObj.y;
+				
+				$("#box").animate({left:x, top:y},'fast');
+			}
+		});
+	}
+	
+	var interval = setInterval(receiveServerData, 100);
+});
+
+</script>
+
+</body>
+</html>

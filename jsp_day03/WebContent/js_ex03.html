@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div.box {
+   position: relative; /* 레이어처럼 사용하기 위해 position 속성 추가*/
+   width: 100px;
+   height: 100px;
+   background: yellow;
+   border: 2px solid red;
+   left: 0px;
+   /*transition: left .5s cubic-bezier(.28,-0.4,.62,1.4);*/
+}
+</style>
+</head>
+<body>
+
+<button class="btn">Start</button>
+<button class="btn">reset</button>
+<hr>
+<div class="box">BOX</div>
+
+<script>
+// DOM 변수 선언
+var btn = document.querySelectorAll(".btn")[0];
+var resetBtn = document.querySelectorAll(".btn")[1];
+var box = document.querySelectorAll(".box")[0];
+console.dir(btn);
+//console.log(btn);
+//console.log(box);
+//addEventListener(이벤트 이름, 콜백함수)
+btn.addEventListener("click", function() {
+   //alert("btn clicked!");
+   //btn을 클릭하면 box의 left(좌표)를 바꿔준다.
+   box.style.transition= "left 1s cubic-bezier(.28,-0.4,.62,1.4)";
+   box.style.left = "400px";
+});
+resetBtn.addEventListener("click", function(){
+   box.style.transition = null;
+   box.style.left = "0px";
+});
+
+
+</script>
+</body>
+</html>

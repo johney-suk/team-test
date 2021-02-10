@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+button {
+	width: 100px;
+	height: 100px;
+}
+</style>
+</head>
+<body>
+<table>
+	<tr>
+		<td></td>
+		<td><button id="upBtn">Up</button></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><button id="leftBtn">Left</button></td>
+		<td id="status" align="center">x:<span>00</span> <br>y:<span>00</span></td>
+		<td><button id="rightBtn">Right</button></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><button id="downBtn">Down</button></td>
+		<td></td>
+	</tr>
+</table>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script>
+$(function() {
+	var x = 300;
+	var y = 300;
+	var mezure = 50;
+	
+	$('#status span:nth(0)').text(x);
+	$('#status span:nth(1)').text(y);
+	
+	function setServerData() {
+		var strUrl = "http://localhost:8888/JS_Example01_Remotecontrol/server.jsp";
+		strUrl += "?x="+x+"&y="+y+"&cmd=c";
+		
+		$.get(strUrl, function(data, status) {
+			console.log(status);
+			if(status == 'success') {
+				$('#status span:nth(0)').text(x);
+				$('#status span:nth(1)').text(y);
+			}
+		});
+	}
+	
+	$('#upBtn').click(function() {
+		y -= mezure;
+		setServerData();
+	});
+	$('#downBtn').click(function() {
+		y += mezure;
+		setServerData();
+	});
+	$('#leftBtn').click(function() {
+		x -= mezure;
+		setServerData();
+	});
+	$('#rightBtn').click(function() {
+		x += mezure;
+		setServerData();
+	});
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script>
+$(function() {
+   var form = $('#mem_form');
+   
+   form.submit(function() {
+      event.preventDefault(); // 페이지 전환 기능 중지.
+      
+      if(this.no.value == "") {
+         alert("no는 필수 입력 항목입니다!");
+         $(this.no).focus();
+         return;
+      }
+      if(this.name.value == "") {
+         alert("name은 필수 입력 항목입니다!");
+         $(this.name).focus();
+         return;
+      }
+      if(this.email.value == "") {
+         alert("email은 필수 입력 항목입니다!");
+         $(this.email).focus();
+         return;
+      }
+      if(this.phone.value == "") {
+         alert("phone은 필수 입력 항목입니다!");
+         $(this.phone).focus();
+         return;
+      }
+      // 모든 유효성 검사가 끝나면 쿼리스트링 전송한다.
+      this.method = "POST";
+      this.action = "form_ok.jsp";
+      this.submit();
+   });
+   
+   // 반복문을 이용해서 여러 요소의 이벤트 일괄 적용.
+   /* 
+   for(target of ["no","name","email","phone"]) {
+      $("#"+target).focus(function() { 
+         $(this).val(""); 
+      });
+   } */
+   // 위에 반복문으로 구현한것을 더 간단히 처리.
+   //console.log( $("input[type=text]") );
+   $("input[type=text]").focus(function(){
+      $(this).val("");
+   });
+});
+</script>
+</head>
+<body>
+
+<h1>::: 회원 정보 입력 :::</h1>
+<form id="mem_form">
+   <table>
+      <tr>
+         <th><label for="no">*No</label></th>
+         <td><input type="text" name="no" id="no" value="1004" /></td>
+      </tr>
+      <tr>
+         <th><label for="name">*Name</label></th>
+         <td><input type="text" name="name" id="name" value="HONG" /></td>
+      </tr>
+      <tr>
+         <th><label for="email">*Email</label></th>
+         <td><input type="text" name="email" id="email" value="hong@korea.com" /></td>
+      </tr>
+      <tr>
+         <th><label for="phone">*Phone</label></th>
+         <td><input type="text" name="phone" id="phone" value="010-1111-1234" /></td>
+      </tr>
+      <tr>
+         <th colspan="2">
+            <input type="submit" value="저장하기" />
+         </th>
+      </tr>
+   </table>
+</form>
+
+</body>
+</html>
